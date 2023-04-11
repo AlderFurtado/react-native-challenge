@@ -39,13 +39,15 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         backgroundColor: "#F4F4F4",
         paddingHorizontal:10,
-        paddingVertical: 15
+        paddingVertical: 15,
+        fontWeight: "500",
+        fontFamily: 'Sora'
     },
     label: {
         color: theme.colors.labelColor,
         fontSize:11,
-        fontFamily: "500",
         marginBottom:4,
+        fontFamily: 'Sora'
     },
     icon: {
         color: theme.colors.darkGrey,

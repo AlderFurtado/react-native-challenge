@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         color:"#FFFFFF",
         fontSize:16,
         fontWeight: "500",
+        fontFamily: 'Sora'
     }
 })
 export default Button;
