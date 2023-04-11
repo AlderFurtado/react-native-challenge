@@ -5,5 +5,7 @@ export const theme = {
         darkGrey: "#A0A0A0",
         green: "#0FDF8F",
         orange: "#F0A719",
+        while: "#FFFFFF",
+        labelColor: "#A0A0A0",
     }
 }
