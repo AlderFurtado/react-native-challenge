@@ -17,7 +17,7 @@ const LoginPage = (): JSX.Element => {
     <Space distance={34}/>
     <TextField label='Email' keyboardType='email-address'/>
     <Space distance={20}/>
-    <TextField label='Password' isPassword/>
+    <TextField label='Password' isPassword placeholder='Minimum 8 characters'/>
     <Space distance={37}/>
     <ButtonPrimary text='Login'/>
     <Space distance={13}/>
