@@ -6,6 +6,7 @@ import { Fontisto } from '@expo/vector-icons';
 import { theme } from '../styles/styles';
 
 import HomePage from '../pages/homePage';
+import FundDetailsPage from '../pages/fundDetailsPage';
 
 
 const Tab = createBottomTabNavigator();
@@ -15,7 +16,7 @@ const MainRoute = () => {
         <Tab.Navigator
         screenOptions={({ route }) => ({
             tabBarIcon: ({ color }) => {
-              if (route.name === 'Home') {
+              if (route.name === 'Main') {
                 return <MaterialIcons name="home" size={24} color={color} />
               } else if (route.name === 'Trade') {
                 return <Fontisto name="arrow-swap" size={24} color={color} />
@@ -25,10 +26,12 @@ const MainRoute = () => {
             tabBarInactiveTintColor: theme.colors.black,
           })}
         >
-            <Tab.Screen name="Home" component={HomePage} options={{
+            <Tab.Screen name="Main" component={HomePage} options={{
                 headerShown: false
             }} />
-          
+             <Tab.Screen name="Trade" component={FundDetailsPage} options={{
+                headerShown: false
+            }} />
         </Tab.Navigator>
     );
 }
