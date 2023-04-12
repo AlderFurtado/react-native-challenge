@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import { theme } from './src/styles/styles';
 import LoginPage from './src/pages/loginPage';
+import RegisterPage from './src/pages/registerPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +31,8 @@ function App() {
   return (
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator>
-        <Stack.Screen name="Login" component={LoginPage} />
+        <Stack.Screen name="Register" component={RegisterPage} />
+        <Stack.Screen name="Login"  component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
