@@ -10,8 +10,7 @@ const Title = ({children}: TitleProps): JSX.Element => {
 const styles = StyleSheet.create({
     title: {
         fontSize:18,
-        fontWeight:"600",
-        fontFamily: 'Sora'
+        fontFamily: 'Sora-Medium'
     }
 })
 
