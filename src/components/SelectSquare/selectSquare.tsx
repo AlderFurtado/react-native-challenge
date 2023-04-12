@@ -8,8 +8,8 @@ interface SelectSquareProps extends TouchableOpacityProps{
     isSelected: boolean
 }
 
-const SelectSquare = ({title,isSelected}:SelectSquareProps):JSX.Element => {
-  return <TouchableOpacity style={[styles.container,{backgroundColor: isSelected ? "#F7EFFF": theme.colors.while}]}>
+const SelectSquare = ({title,isSelected, ...props}:SelectSquareProps):JSX.Element => {
+  return <TouchableOpacity style={[styles.container,{backgroundColor: isSelected ? "#F7EFFF": theme.colors.while}]} {...props}>
     <PlanText style={{color: isSelected ?  theme.colors.colorPrimary : theme.colors.darkGrey  }}>{title}</PlanText>
   </TouchableOpacity>;
 }
