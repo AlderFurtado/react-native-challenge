@@ -1,15 +1,15 @@
 import React from 'react';
-import { StyleSheet, View,Text, TouchableOpacityProps } from 'react-native';
+import { StyleSheet, View,Text, TouchableOpacityProps, TouchableOpacity } from 'react-native';
 import { theme } from '../../styles/styles';
 
 interface ButtonPrimaryProps extends TouchableOpacityProps{
     text:string 
 }
 
-const ButtonPrimary = ({text}:ButtonPrimaryProps): JSX.Element => {
-  return <View style={[styles.container,]}>
+const ButtonPrimary = ({text, ...props}:ButtonPrimaryProps): JSX.Element => {
+  return <TouchableOpacity style={styles.container} {...props}>
     <Text style={styles.text}>{text}</Text>
-  </View>;
+  </TouchableOpacity>;
 }
 
 
