@@ -1,7 +1,7 @@
 export const mock = {
     login: {
         email: "test@test.com",
-        password: "123456"
+        password: "12345678"
     },
     userInfo: {
         email: "test@test.com",
