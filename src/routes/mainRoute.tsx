@@ -5,22 +5,9 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
 import { theme } from '../styles/styles';
 
-function HomeScreen() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Home!</Text>
-      </View>
-    );
-}
+import HomePage from '../pages/homePage';
 
-function SettingsScreen() {
-return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-    <Text>Settings!</Text>
-    </View>
-);
-}
-  
+
 const Tab = createBottomTabNavigator();
 
 const MainRoute = () => {
@@ -38,10 +25,10 @@ const MainRoute = () => {
             tabBarInactiveTintColor: theme.colors.black,
           })}
         >
-            <Tab.Screen name="Home" component={HomeScreen} options={{
+            <Tab.Screen name="Home" component={HomePage} options={{
                 headerShown: false
             }} />
-            <Tab.Screen name="Trade" component={SettingsScreen} />
+          
         </Tab.Navigator>
     );
 }
