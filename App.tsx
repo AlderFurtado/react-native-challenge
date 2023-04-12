@@ -4,15 +4,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useFonts } from 'expo-font';
 import { theme } from './src/styles/styles';
-
-
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1,padding:16, alignItems: 'center', justifyContent: 'center' }}>
-    </View>
-  );
-}
+import LoginPage from './src/pages/loginPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +30,7 @@ function App() {
   return (
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Login" component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
