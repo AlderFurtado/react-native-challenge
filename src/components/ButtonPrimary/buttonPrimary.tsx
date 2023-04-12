@@ -2,11 +2,11 @@ import React from 'react';
 import { StyleSheet, View,Text, TouchableOpacityProps } from 'react-native';
 import { theme } from '../../styles/styles';
 
-interface ButtonProps extends TouchableOpacityProps{
+interface ButtonPrimaryProps extends TouchableOpacityProps{
     text:string 
 }
 
-const Button = ({text}:ButtonProps): JSX.Element => {
+const ButtonPrimary = ({text}:ButtonPrimaryProps): JSX.Element => {
   return <View style={[styles.container,]}>
     <Text style={styles.text}>{text}</Text>
   </View>;
@@ -31,4 +31,4 @@ const styles = StyleSheet.create({
         fontFamily: 'Sora'
     }
 })
-export default Button;
+export default ButtonPrimary;
