@@ -7,5 +7,6 @@ export const theme = {
         orange: "#F0A719",
         while: "#FFFFFF",
         labelColor: "#A0A0A0",
+        black: "#000000"
     }
 }
