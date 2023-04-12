@@ -14,7 +14,6 @@ import { getInfo } from '../features/userInfo/userInfo';
 import { RootState } from '../../store';
 
 const LoginPage = (): JSX.Element => {
-  const userInfo = useSelector((state: RootState) => state.userInfo)
   const [email,setEmail] = useState("")
   const [password,setPassword] = useState("")
 
@@ -23,12 +22,11 @@ const LoginPage = (): JSX.Element => {
   const dispatch = useDispatch()
 
   function handleLogin(){
+    if(password.trim().length < 8){
+      return Alert.alert("Something wrong","Password has must than 7 caracters")
+    }
     if(email === mock.login.email && password === mock.login.password){
       dispatch(getInfo(mock.userInfo))
-      setTimeout(() => {
-        console.log(userInfo)
-      },2000)
-    
       return
     }
     return Alert.alert("Something Wrong","Credentials invalid")
