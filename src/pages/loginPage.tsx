@@ -21,7 +21,7 @@ const LoginPage = (): JSX.Element => {
     <Space distance={37}/>
     <ButtonPrimary text='Login'/>
     <Space distance={13}/>
-    <PlanText style={{color:theme.colors.darkGrey}}>Don’t have an account? Sign up here</PlanText>
+    <PlanText style={{color:theme.colors.darkGrey}}>Don’t have an account? <PlanText style={{textDecorationLine:"underline"}}>Sign up</PlanText> here</PlanText>
   </View>;
 }
 
