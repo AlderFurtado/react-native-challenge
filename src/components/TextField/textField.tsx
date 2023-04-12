@@ -13,7 +13,7 @@ const TextField = ({label, isPassword ,...props}: TextFieldProps): JSX.Element =
     const [isSecret, setIsSecret] = useState(isPassword)
     return <View style={styles.container}>
     <Text style={styles.label}>
-        Password
+        {label}
     </Text>
     <TextInput 
         style={styles.containerTextInput}
