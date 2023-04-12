@@ -20,14 +20,11 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     getInfo: (state,action: PayloadAction<UserState>) => {
-      state = action.payload
+      state.email = action.payload.email
+      state.firstName = action.payload.firstName
+      state.lastName = action.payload.lastName
+      state.isOver18 = action.payload.isOver18
     },
-    // decrement: (state) => {
-    //   state.value -= 1
-    // },
-    // incrementByAmount: (state, action: PayloadAction<number>) => {
-    //   state.value += action.payload
-    // },
   },
 })
 
