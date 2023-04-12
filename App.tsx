@@ -21,6 +21,10 @@ function App() {
 
   const [fontsLoaded] = useFonts({
     'Sora': require('./assets/fonts/Sora.ttf'),
+    'Sora-Bold': require('./assets/fonts/Sora-Bold.ttf'),
+    'Sora-Regular': require('./assets/fonts/Sora-Regular.ttf'),
+    'Sora-Medium': require('./assets/fonts/Sora-Medium.ttf'),
+    'Sora-Light': require('./assets/fonts/Sora-Light.ttf'),
   });
 
 
@@ -31,8 +35,10 @@ function App() {
   return (
     <NavigationContainer theme={MyTheme}>
       <Stack.Navigator>
+        <Stack.Screen name="Login"  component={LoginPage}   options={{
+          headerTitle:""
+        }} />
         <Stack.Screen name="Register" component={RegisterPage} />
-        <Stack.Screen name="Login"  component={LoginPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
