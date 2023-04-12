@@ -11,7 +11,7 @@ const AuthRoute = () => {
   return  <Stack.Navigator>
     <Stack.Screen name="Home" component={MainRoute} 
         options={{
-            headerTitle:""
+            headerShown: false
         }}
     />
     <Stack.Screen name="Login"  component={LoginPage}   options={{
