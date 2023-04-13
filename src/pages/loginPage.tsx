@@ -19,14 +19,14 @@ const LoginPage = (): JSX.Element => {
 
   const navigation = useNavigation()
 
-  const dispatch = useDispatch()
+  const userInfo = useSelector((state: RootState) => state.userInfo)
 
   function handleLogin(){
     if(password.trim().length < 8){
       return Alert.alert("Something wrong","Password has must than 7 caracters")
     }
-    if(email === mock.login.email && password === mock.login.password){
-      dispatch(getInfo(mock.userInfo))
+    if(email === userInfo.email && password === userInfo.password){
+      navigation.navigate("Home" as never)
       return
     }
     return Alert.alert("Something Wrong","Credentials invalid")
