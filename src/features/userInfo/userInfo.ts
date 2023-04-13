@@ -5,14 +5,16 @@ export interface UserState {
   email?: string,
   firstName?: string,
   lastName?: string,
-  isOver18?: boolean
+  isOver18?: boolean,
+  password?: string
 }
 
 const initialState: UserState = {
     email: null,
     firstName: null,
     lastName: null,
-    isOver18: null
+    isOver18: null,
+    password: null
 }
 
 export const userSlice = createSlice({
@@ -24,6 +26,7 @@ export const userSlice = createSlice({
       state.firstName = action.payload.firstName
       state.lastName = action.payload.lastName
       state.isOver18 = action.payload.isOver18
+      state.password = action.payload.password
     },
   },
 })
