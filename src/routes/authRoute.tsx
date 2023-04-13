@@ -9,11 +9,6 @@ const Stack = createNativeStackNavigator();
 
 const AuthRoute = () => {
   return  <Stack.Navigator>
-    <Stack.Screen name="Home" component={MainRoute} 
-        options={{
-            headerShown: false
-        }}
-    />
     <Stack.Screen name="Login"  component={LoginPage}   options={{
       headerTitle:""
     }} />
@@ -21,6 +16,11 @@ const AuthRoute = () => {
       options={{
         headerTitle:""
       }}
+    />
+    <Stack.Screen name="Home" component={MainRoute} 
+        options={{
+            headerShown: false
+        }}
     />
   </Stack.Navigator>;
 }

@@ -7,6 +7,8 @@ import { Feather } from '@expo/vector-icons';
 import Title from '../components/Title/title';
 import Space from '../components/Space/space';
 import CardFaq from '../components/CardFaq/cardFaq';
+import { FontAwesome } from '@expo/vector-icons';
+import { mock } from '../../mock';
 
 const HomePage = ():JSX.Element => {
   return (
@@ -25,14 +27,23 @@ const HomePage = ():JSX.Element => {
                 showsHorizontalScrollIndicator={false}
                 ItemSeparatorComponent={() => <Space distance={15} horizontal/>}
                 horizontal
-                data={[1,2,3,4]}
+                data={mock.funds}
                 renderItem={({item}) => {
-                    return <CardFund 
-                    icon={<Feather name="wind" size={12} color="blue" />} 
-                    name={"WindFund"} 
-                    value={1032.23} 
-                    increaseByPorcente={3.51}
-                />
+                    const icon = () => {
+                        if(item.name === "wind fund"){
+                            return <Feather name="wind" size={12} color="blue" />
+                        }else if(item.name === "solar fund"){
+                            return <Feather name="sun" size={12} color="yellow" />
+                        }else if(item.name === "natural fund"){
+                            return <FontAwesome name="tree" size={12} color="green" />
+                        }
+                    }
+                    return  <CardFund 
+                                icon={icon()} 
+                                name={item.name} 
+                                value={item.price} 
+                                increaseByPorcente={item.increaseByPorcent}
+                            />
                 }}
             />
             <Space distance={20}/>
@@ -47,9 +58,9 @@ const HomePage = ():JSX.Element => {
                 showsHorizontalScrollIndicator={false}
                 ItemSeparatorComponent={() => <Space distance={15} horizontal/>}
                 horizontal
-                data={[1,2,3,4]}
+                data={mock.faq}
                 renderItem={({item}) => {
-                    return  <CardFaq title='Why should you invest here?'/>
+                    return  <CardFaq title={item}/>
                 }}
             />
         </ScrollView>

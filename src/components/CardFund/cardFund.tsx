@@ -8,8 +8,8 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 interface CardFundProps extends TouchableOpacityProps{
     icon: React.ReactNode,
     name: string,
-    value: number,
-    increaseByPorcente: number
+    value: string,
+    increaseByPorcente: string
 }
 
 const CardFund = ({icon,name,value,increaseByPorcente}:CardFundProps) => {
