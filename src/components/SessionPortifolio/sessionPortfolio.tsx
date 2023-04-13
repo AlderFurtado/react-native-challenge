@@ -9,8 +9,12 @@ import ButtonTertiary from '../ButtonTertiary/buttonTertiary';
 import Space from '../Space/space';
 import ButtonPrimary from '../ButtonPrimary/buttonPrimary';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { RootState } from '../../../store';
+import { useSelector } from 'react-redux';
 
 const SessionPortifolio = (): JSX.Element => {
+    const fundInfo = useSelector((state: RootState) => state.fundInfo)
+
   return <View>
     <View style={{flexDirection:"row"}}>
         <Feather name="pie-chart" size={20} color="black" />
@@ -18,16 +22,16 @@ const SessionPortifolio = (): JSX.Element => {
     </View>
     <Space distance={20}/>
     <View style={{flexDirection:"row", justifyContent:"space-between"}}>
-        <Text style={styles.portifolioText}>18 credits</Text>
-        <Text style={styles.portifolioText}>$328.14</Text>
+        <Text style={styles.portifolioText}>{fundInfo.credits} credits</Text>
+        <Text style={styles.portifolioText}>${fundInfo.price}</Text>
     </View>
     <Space distance={4}/>
     <View style={{flexDirection:"row", justifyContent:"space-between"}}>
         <View style={{flexDirection:"row", }}>
             <MaterialCommunityIcons name="arrow-top-right" size={14} color={theme.colors.green} />
-            <PlanText style={{color:theme.colors.green}}>8.41%</PlanText>
+            <PlanText style={{color:theme.colors.green}}>{fundInfo.increaseByPorcent}%</PlanText>
         </View>
-        <PlanText style={{color:theme.colors.darkGrey}}>Last purchase 28d ago</PlanText>
+        <PlanText style={{color:theme.colors.darkGrey}}>Last purchase {fundInfo.lastPurchase} ago</PlanText>
     </View>
     <Space distance={18}/>
     <View style={{flexDirection:"row"}}>

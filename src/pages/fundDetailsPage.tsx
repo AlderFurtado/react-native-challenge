@@ -9,6 +9,8 @@ import Space from '../components/Space/space';
 import CardInfoStats from '../components/CardInfoStats/cardInfoStats';
 import SessionFundBreakdown from '../components/SessionFundBreakdown/sessionFundBreakdown';
 import SessionPortifolio from '../components/SessionPortifolio/sessionPortfolio';
+import { RootState } from '../../store';
+import { useSelector } from 'react-redux';
 const screenWidth = Dimensions.get("window").width;
 
 enum Period {
@@ -30,6 +32,7 @@ const chartConfig = {
   };
 
 const FundDetailsPage = () => {
+    const fundInfo = useSelector((state: RootState) => state.fundInfo)
 
     const [periodSelected,setPeriodSelected] = useState<Period>(Period.hour)
 
@@ -39,27 +42,16 @@ const FundDetailsPage = () => {
 
     
 
-    const data = {
-        labels: [],
-        datasets: [
-          {
-            data: [20, 45, 28, 80, 99, 43, 23,53,51,44,30],
-            color: (opacity = 1) => theme.colors.green, // optional
-            strokeWidth: 3 // optional
-          }
-        ],
-        legend: ["Rainy Days"] // optional
-      };
-
+    const data = fundInfo.charts as any
   return <SafeAreaView>
      <ScrollView>
             <View>
                 <View style={{flexDirection: "row",justifyContent:"space-between",paddingHorizontal:20}}>
                     <View>
-                        <Text style={styles.portifolioText}>$18.23</Text>
-                        <PlanText style={{color:theme.colors.green}}>31.82%($1.21)</PlanText>
+                        <Text style={styles.portifolioText}>${fundInfo.price}</Text>
+                        <PlanText style={{color:theme.colors.green}}>{fundInfo.increaseByPorcent}%($1.21)</PlanText>
                     </View>
-                    <Text style={styles.portifolioText}>2022</Text>
+                    <Text style={styles.portifolioText}>{fundInfo.year}</Text>
                 </View>
                 <LineChart
                 data={data}

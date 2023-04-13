@@ -5,8 +5,11 @@ import PlanText from '../PlanText/planText';
 import { theme } from '../../styles/styles';
 import Space from '../Space/space';
 import { Ionicons } from '@expo/vector-icons';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../store';
 
 const CardInfoStats = (): JSX.Element => {
+    const fundInfo = useSelector((state: RootState) => state.fundInfo)
 
     function RenderElement({title,description}:{title:string,description:string}){
         return <View style={{flex:1}}>
@@ -24,18 +27,18 @@ const CardInfoStats = (): JSX.Element => {
     <Title>Info & Stats</Title>
     <Space distance={20}/>
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-        <RenderElement title='AUM' description='$430.88m'/>
-        <RenderElement title='Issue Date' description='18/04/2022'/>
+        <RenderElement title='AUM' description={fundInfo.AUM}/>
+        <RenderElement title='Issue Date' description={fundInfo.issueDate}/>
     </View>
     <Space distance={18}/>
     <View style={{flexDirection:"row",justifyContent:"space-between"}}>
-        <RenderElement title='Vintage Range' description='2019 – 2022'/>
-        <RenderElement title='TER' description='0.15%'/>
+        <RenderElement title='Vintage Range' description={fundInfo.vintageRange}/>
+        <RenderElement title='TER'description={fundInfo.TER}/>
     </View>
     <Space distance={18}/>
     <View style={{flexDirection:"row",justifyContent:"space-between",alignItems:'center'}}>
-        <RenderElement title='Price at Close' description='$17.68'/>
-        <RenderElement title='Price at Open' description='$17.74'/>
+        <RenderElement title='Price at Close' description={fundInfo.priceAtClose}/>
+        <RenderElement title='Price at Open' description={fundInfo.priceAtOpen}/>
     </View>
   </View>;
 }
