@@ -17,7 +17,8 @@ export const mock = {
 
     funds: [
          {
-            name:"wind fund",
+            name:"Wind Fund",
+            acronym: "WDF",
             price: "1032.23",
             increaseByPorcent: "3.51",
             AUM: "4300000",
@@ -28,7 +29,8 @@ export const mock = {
             priceAtOpen: "17.44"
         },
         {
-            name:"solar fund",
+            name:"Solar Fund",
+            acronym: "SAL",
             price: "986.61",
             increaseByPorcent: "0.13",
             AUM: "6420000",
@@ -39,7 +41,8 @@ export const mock = {
             priceAtOpen: "4.44"
         },
         {
-            name:"natural fund",
+            name:"Natural Fund",
+            acronym: "NTL",
             price: "1122.95",
             increaseByPorcent: "0.15",
             AUM: "320000",
