@@ -4,6 +4,7 @@ import { mock } from '../../../mock'
 
 export interface FundState {
     name?:string,
+    year?:string,
     acronym?:string,
     price?: string,
     increaseByPorcent?:string,
@@ -13,6 +14,9 @@ export interface FundState {
     TER?: string,
     priceAtClose?: string,
     priceAtOpen?: string
+    credits?:string,
+    lastPurchase?: string,
+    charts:any
 }
 
 const initialState: FundState = mock.funds[0]
@@ -23,6 +27,7 @@ export const fundSlice = createSlice({
   reducers: {
     getFundInfo: (state,action: PayloadAction<FundState>) => {
       state.name = action.payload.name
+      state.year = action.payload.year
       state.acronym = action.payload.acronym
       state.price = action.payload.price
       state.increaseByPorcent = action.payload.increaseByPorcent
@@ -32,6 +37,9 @@ export const fundSlice = createSlice({
       state.TER = action.payload.TER
       state.priceAtClose = action.payload.priceAtClose
       state.priceAtOpen = action.payload.priceAtOpen
+      state.credits = action.payload.credits
+      state.lastPurchase = action.payload.lastPurchase
+      state.charts = action.payload.charts
     },
   },
 })
