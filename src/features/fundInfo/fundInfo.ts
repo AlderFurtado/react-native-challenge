@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
+import { mock } from '../../../mock'
 
 export interface FundState {
     name?:string,
@@ -14,18 +15,7 @@ export interface FundState {
     priceAtOpen?: string
 }
 
-const initialState: FundState = {
-    name:null,
-    acronym:null,
-    price: null,
-    increaseByPorcent:null,
-    AUM: null,
-    issueDate: null,
-    vintageRange: null,
-    TER: null,
-    priceAtClose: null,
-    priceAtOpen: null
-}
+const initialState: FundState = mock.funds[0]
 
 export const fundSlice = createSlice({
   name: 'fundInfo',
