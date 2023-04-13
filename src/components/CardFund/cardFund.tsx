@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacityProps, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, TouchableOpacityProps, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { theme } from '../../styles/styles';
 import Space from '../Space/space';
@@ -12,8 +12,8 @@ interface CardFundProps extends TouchableOpacityProps{
     increaseByPorcente: string
 }
 
-const CardFund = ({icon,name,value,increaseByPorcente}:CardFundProps) => {
-  return <View style={styles.container}>
+const CardFund = ({icon,name,value,increaseByPorcente, ...props}:CardFundProps) => {
+  return <TouchableOpacity style={styles.container} {...props}>
     {icon}
     <Space distance={7}/>
     <Text style={styles.title}>{name}</Text>
@@ -26,7 +26,7 @@ const CardFund = ({icon,name,value,increaseByPorcente}:CardFundProps) => {
         <MaterialCommunityIcons name="arrow-top-right" size={14} color={theme.colors.green} />
         <Text style={[styles.subtitle,{color: theme.colors.green}]}>{increaseByPorcente}%</Text>
     </View>
-  </View>;
+  </TouchableOpacity>;
 }
 
 const styles = StyleSheet.create({
