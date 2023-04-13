@@ -27,7 +27,8 @@ const RegisterPage = (): JSX.Element => {
 
     function handleRegister(){
         if(validateForm()){
-            dispatch(getInfo({email,firstName,lastName,isOver18}))
+            dispatch(getInfo({email,firstName,lastName,isOver18,password}))
+            Alert.alert("Register has succeeded")
             navigation.navigate("Login" as never)
         }
     }
