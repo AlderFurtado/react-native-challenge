@@ -9,8 +9,19 @@ import Space from '../components/Space/space';
 import CardFaq from '../components/CardFaq/cardFaq';
 import { FontAwesome } from '@expo/vector-icons';
 import { mock } from '../../mock';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFundInfo } from '../features/fundInfo/fundInfo';
+import { useNavigation } from '@react-navigation/native';
 
 const HomePage = ():JSX.Element => {
+    const dispatch = useDispatch()
+
+    const navigation = useNavigation()
+
+    function handleFund(fund:any){
+        dispatch(getFundInfo(fund))
+        navigation.navigate("Trade" as never)
+    }
   return (
     <View>
         <HeaderAccount/>
@@ -30,15 +41,16 @@ const HomePage = ():JSX.Element => {
                 data={mock.funds}
                 renderItem={({item}) => {
                     const icon = () => {
-                        if(item.name === "wind fund"){
+                        if(item.name === "Wind Fund"){
                             return <Feather name="wind" size={12} color="blue" />
-                        }else if(item.name === "solar fund"){
+                        }else if(item.name === "Solar Fund"){
                             return <Feather name="sun" size={12} color="yellow" />
-                        }else if(item.name === "natural fund"){
+                        }else if(item.name === "Natural Fund"){
                             return <FontAwesome name="tree" size={12} color="green" />
                         }
                     }
                     return  <CardFund 
+                                onPress={() => {handleFund(item)}}
                                 icon={icon()} 
                                 name={item.name} 
                                 value={item.price} 
