@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import userReducer from './src/features/userInfo/userInfo'
+import fundReducer from './src/features/fundInfo/fundInfo'
+
 
 export const store = configureStore({
   reducer: {
-    userInfo: userReducer
+    userInfo: userReducer,
+    fundInfo: fundReducer
   },
 })
 
