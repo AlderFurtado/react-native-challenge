@@ -10,6 +10,7 @@ import { theme } from '../styles/styles';
 import Checkbox from '../components/Checkbox/checkbox';
 import { useDispatch } from 'react-redux';
 import { getInfo } from '../features/userInfo/userInfo';
+import { useNavigation } from '@react-navigation/native';
 
 // import { Container } from './styles';
 
@@ -22,9 +23,12 @@ const RegisterPage = (): JSX.Element => {
 
     const dispatch = useDispatch()
 
+    const navigation = useNavigation()
+
     function handleRegister(){
         if(validateForm()){
             dispatch(getInfo({email,firstName,lastName,isOver18}))
+            navigation.navigate("Login" as never)
         }
     }
 
@@ -36,7 +40,7 @@ const RegisterPage = (): JSX.Element => {
             return Alert.alert("Something wrong","All fields are required")
         }
         if(password.trim().length < 8){
-            return Alert.alert("Something wrong","Password has must than 7 caracters")
+            return Alert.alert("Something wrong","Password has must than 7 characters")
         }
         return true
     }
@@ -84,7 +88,7 @@ const RegisterPage = (): JSX.Element => {
     </View>
  
     <Space distance={37}/>
-    <ButtonPrimary text='Login' onPress={handleRegister}/>
+    <ButtonPrimary text='Login' onPress={handleRegister} disabled={!isOver18} />
     <Space distance={13}/>
   </View>;
 }
